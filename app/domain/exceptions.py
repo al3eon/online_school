@@ -12,3 +12,7 @@ class InvalidModuleError(DomainError):
 
 class InvalidSectionError(DomainError):
     pass
+
+
+class InvalidLectureError(DomainError):
+    pass

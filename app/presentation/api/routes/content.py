@@ -2,16 +2,16 @@ from uuid import UUID
 
 from fastapi import APIRouter, Depends
 
-from app.application.use_cases.courses.get_course import GetCourseQuery, \
-    GetCourseUseCase
+from app.application.use_cases.courses.get_course import (
+    GetCourseQuery, GetCourseUseCase)
 from app.application.use_cases.courses.get_course_structure import (
     GetCourseStructureQuery,
     GetCourseStructureUseCase,
 )
-from app.application.use_cases.courses.get_courses import GetCoursesQuery, \
-    GetCoursesUseCase
-from app.application.use_cases.lectures.get_lecture import GetLectureQuery, \
-    GetLectureUseCase
+from app.application.use_cases.courses.get_courses import (
+    GetCoursesQuery, GetCoursesUseCase)
+from app.application.use_cases.lectures.get_lecture import (
+    GetLectureQuery, GetLectureUseCase)
 from app.presentation.api.dependencies import (
     get_get_course_structure_use_case,
     get_get_course_use_case,

@@ -7,11 +7,11 @@ from app.presentation.api.schemas.content import (
     ModuleStructureResponse,
     SectionStructureResponse,
 )
-from app.presentation.api.schemas.courses import CreateCourseRequest, \
-    UpdateCourseRequest
+from app.presentation.api.schemas.courses import (
+    CreateCourseRequest, UpdateCourseRequest)
 from app.presentation.api.schemas.errors import ErrorResponse
-from app.presentation.api.schemas.lectures import CreateLectureRequest, \
-    UpdateLectureRequest
+from app.presentation.api.schemas.lectures import (
+    CreateLectureRequest, UpdateLectureRequest)
 from app.presentation.api.schemas.modules import (
     CreateModuleRequest,
     ModuleResponse,

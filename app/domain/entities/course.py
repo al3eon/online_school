@@ -28,3 +28,4 @@ class Course:
     def add_module(self, module_id: UUID) -> None:
         if module_id not in self.module_ids:
             self.module_ids.append(module_id)
+#

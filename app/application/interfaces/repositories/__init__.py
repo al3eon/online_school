@@ -10,10 +10,14 @@ from app.application.interfaces.repositories.module_repository import (
 from app.application.interfaces.repositories.section_repository import (
     SectionRepository
 )
+from app.application.interfaces.repositories.user_repository import (
+    UserRepository
+)
 
 __all__ = [
     'CourseRepository',
     'ModuleRepository',
     'SectionRepository',
     'LectureRepository',
+    'UserRepository',
 ]

@@ -3,6 +3,7 @@ from collections.abc import AsyncIterator
 from fastapi import Depends
 
 from app.application.interfaces.services.password_hasher import PasswordHasher
+from app.application.interfaces.services.token_service import TokenService
 from app.application.use_cases.auth.login_user import LoginUserUseCase
 from app.application.use_cases.auth.register_user import RegisterUserUseCase
 from app.application.use_cases.courses.create_course import CreateCourseUseCase
@@ -24,6 +25,8 @@ from app.application.use_cases.sections.update_section import (
     UpdateSectionUseCase)
 from app.infrastructure.database import SessionFactory, SqlAlchemyUnitOfWork
 from app.infrastructure.security.password_hasher import PwdlibPasswordHasher
+from app.infrastructure.security.jwt_token_service import JwtTokenService
+
 
 
 async def get_uow() -> AsyncIterator[SqlAlchemyUnitOfWork]:
@@ -112,6 +115,10 @@ def get_password_hasher() -> PasswordHasher:
     return PwdlibPasswordHasher()
 
 
+def get_token_service() -> TokenService:
+    return JwtTokenService()
+
+
 def get_register_user_use_case() -> RegisterUserUseCase:
     return RegisterUserUseCase(
         uow=SqlAlchemyUnitOfWork(session_factory=SessionFactory),
@@ -123,4 +130,5 @@ def get_login_user_use_case() -> LoginUserUseCase:
     return LoginUserUseCase(
         uow=SqlAlchemyUnitOfWork(session_factory=SessionFactory),
         password_hasher=get_password_hasher(),
+        token_service=get_token_service(),
     )
